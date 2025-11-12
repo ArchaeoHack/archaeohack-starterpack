@@ -16,6 +16,7 @@ glyphs.map! do |glyph|
     unicode = $!.error_char.dump # capture a dump, mapped to the source character
   end
   glyph['unicode_hex'] = unicode.gsub /[\D]/, '' # store it as clean digits for hex, remove extra non-digit chars
+  glyph['is_priority'] = glyph['is_priority'].to_s.downcase == "true" # convert to boolean
   glyph # return updated hash
 end
 
